@@ -9,6 +9,22 @@ function doubleNum(req, res, next) {
     next();
 }
 
+function logParamsMiddleware(req, res, next) {
+    const queryParams = Object.keys(req.query || {});
+    const pathParams = Object.keys(req.params || {});
+    const bodyParams = Object.keys(req.body || {});
+
+    console.log("🔍 Incoming Request Params:");
+    console.log("Query Params:", queryParams.length ? queryParams : "None");
+    console.log("Path Params:", pathParams.length ? pathParams : "None");
+    console.log("Body Params:", bodyParams.length ? bodyParams : "None");
+
+    next();
+
+}
+
+app.use(logParamsMiddleware);
+
 // Example: http://localhost:3000/querySum?a=10&b=12
 app.get('/querySum', doubleNum, (req, res) => {
     const {a, b} = req.doubled;
@@ -27,6 +43,8 @@ app.get('/paramSum/:num1/:num2', (req, res) => {
     res.json({ num1, num2, sum });
 
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
