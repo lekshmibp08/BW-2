@@ -15,7 +15,7 @@ app.get("/updateFile/:fileName", (req, res) => {
         const currDateTime = new Date().toString();
 
         fs.appendFile(
-            filePath, 
+            fileName, 
             `\nUpdated by ${name} at ${currDateTime}`,
             (err) => {
                 if(err)
@@ -27,6 +27,17 @@ app.get("/updateFile/:fileName", (req, res) => {
     } else {
         res.status(404).json({message: "File Not Found"});
     }
+})
+
+app.get("/readFile/:fileName", (req, res) => {
+    const {fileName} = req.params;
+
+    fs.readFile(fileName, "utf8", (err, data) => {
+        if(err) {
+            return res.status(500).json({message: "Error in reading file"});
+        }
+        res.json({data: data})
+    })
 })
 
 app.listen(3000, () => {
