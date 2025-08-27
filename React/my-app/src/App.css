@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+  padding: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app.light {
+  background: #ffffff;
+  color: #000000;
+}
+
+.app.dark {
+  background: #1e1e1e;
+  color: #ffffff;
+}
