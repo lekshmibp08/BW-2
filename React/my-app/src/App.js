@@ -3,6 +3,8 @@ import ErrorBoundary from "./ErrorBoundary";
 import ThemeComponent from "./ThemeComponent";
 //import ToggleTheme from "./ToggleTheme";
 import ThemeProvider from "./ThemeProvider";
+import CheckBoxProvider from "./CheckBoxProvider";
+import CheckBoxComponent from "./CheckBoxComponent";
 
 const UseMemoExample = React.lazy(() => import("./UseMemoExample"));
 
@@ -15,6 +17,9 @@ function App() {
           <UseMemoExample />
         </Suspense>
       </ThemeProvider>
+      <CheckBoxProvider>
+        <CheckBoxComponent/>
+      </CheckBoxProvider>
     </ErrorBoundary>
   );
 }
