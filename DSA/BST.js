@@ -104,22 +104,46 @@ class BST {
     } else if (value > root.value) {
       root.right = this.deleteNode(root.right, value);
     } else {
-        // node to be deleted is leaf node
-        if(!root.left && !root.right) {
-            return null;
-        }
-        if(!root.left) {
-            // only right child
-            return root.right
-        } else if(!root.right) {
-            // only left child
-            return root.left;
-        } else {
-            // both leaves present
-            root.value = this.minValue(root.right);
-            root.right = this.deleteNode(root.right, root.value);
-        }
+      // node to be deleted is leaf node
+      if (!root.left && !root.right) {
+        return null;
+      }
+      if (!root.left) {
+        // only right child
+        return root.right;
+      } else if (!root.right) {
+        // only left child
+        return root.left;
+      } else {
+        // both leaves present
+        root.value = this.minValue(root.right);
+        root.right = this.deleteNode(root.right, root.value);
+      }
     }
+  }
+  toArrayAscending() {
+    let result = [];
+    function inOrder(node) {
+      if (node) {
+        inOrder(node.left);
+        result.push(node.value);
+        inOrder(node.right);
+      }
+    }
+    inOrder(this.root);
+    return result;
+  }
+  toArrayDescending() {
+    let result = [];
+    function reverseInOrder(node) {
+      if (node) {
+        reverseInOrder(node.right);
+        result.push(node.value);
+        reverseInOrder(node.left);
+      }
+    }
+    reverseInOrder(this.root);
+    return result;
   }
 }
 
@@ -138,5 +162,8 @@ bst.insert(7);
 // bst.inOrder(bst.root); // 3, 5, 7, 10, 15
 // bst.postOrder(bst.root); // 3, 5, 7, 15, 10
 // bst.levelOrder();   // 10, 5, 15, 3, 7
+
 console.log(bst.minValue(bst.root)); // 3
 console.log(bst.maxValue(bst.root)); // 15
+console.log(bst.toArrayAscending()); // [ 3, 5, 7, 10, 15 ]
+console.log(bst.toArrayDescending()); // [ 15, 10, 7, 5, 3 ]
