@@ -6,22 +6,28 @@ import ThemeProvider from "./ThemeProvider";
 import CheckBoxProvider from "./CheckBoxProvider";
 import CheckBoxComponent from "./CheckBoxComponent";
 import CounterUsingReducer from "./CounterUsingReducer";
+import Parent from "./Parent";
 
 const UseMemoExample = React.lazy(() => import("./UseMemoExample"));
 
 function App() {
   return (
     <ErrorBoundary>
+
       <ThemeProvider>
         <ThemeComponent/>
         <Suspense fallback={<h3>Loading...</h3>}>
           <UseMemoExample />
         </Suspense>
       </ThemeProvider>
+
       <CheckBoxProvider>
         <CheckBoxComponent/>
       </CheckBoxProvider>
+      
       <CounterUsingReducer/>
+
+      <Parent/>
     </ErrorBoundary>
   );
 }
