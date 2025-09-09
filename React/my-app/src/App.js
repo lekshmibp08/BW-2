@@ -5,6 +5,7 @@ import ThemeComponent from "./ThemeComponent";
 import ThemeProvider from "./ThemeProvider";
 import CheckBoxProvider from "./CheckBoxProvider";
 import CheckBoxComponent from "./CheckBoxComponent";
+import CounterUsingReducer from "./CounterUsingReducer";
 
 const UseMemoExample = React.lazy(() => import("./UseMemoExample"));
 
@@ -20,6 +21,7 @@ function App() {
       <CheckBoxProvider>
         <CheckBoxComponent/>
       </CheckBoxProvider>
+      <CounterUsingReducer/>
     </ErrorBoundary>
   );
 }
