@@ -20,8 +20,9 @@ app.get("/updateFile/:fileName", (req, res) => {
             (err) => {
                 if(err)
                     return res.status(500).json({message: "File Updation Fialed"});
-                res.status(200).json({message: "File Updated Successfully...!"})
-            }
+                else 
+                    res.status(200).json({message: "File Updated Successfully...!"})
+            },
         )
 
     } else {
@@ -40,6 +41,6 @@ app.get("/readFile/:fileName", (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(2000, () => {
     console.log("Server Connected...");    
 })
