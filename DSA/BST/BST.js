@@ -95,7 +95,7 @@ class BST {
     else return this.maxValue(root.right);
   }
   delete(value) {
-    this.root = this.removeNode(this.root, value);
+    this.root = this.deleteNode(this.root, value);
   }
   deleteNode(root, value) {
     if (root === null) return root;
