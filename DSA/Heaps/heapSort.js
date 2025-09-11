@@ -24,7 +24,7 @@ function heapSortAscending(arr) {
         maxHeapify(arr, i, 0)
     }
 }
-
+/*  create maxheap and swap last with root again heapify to find the next largest value*/
 function minHeapify(arr, n, i) {
     let smallest = i;
     let leftChild = 2 * i + 1;
