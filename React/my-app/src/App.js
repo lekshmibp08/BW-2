@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import ErrorBoundary from "./ErrorBoundary";
-import ThemeComponent from "./ThemeComponent";
+import ThemeComponent from "./ThemeContext/ThemeComponent"; 
 //import ToggleTheme from "./ToggleTheme";
-import ThemeProvider from "./ThemeProvider";
+import ThemeProvider from "./ThemeContext/ThemeProvider"; 
 import CheckBoxProvider from "./CheckBoxProvider";
 import CheckBoxComponent from "./CheckBoxComponent";
 import CounterUsingReducer from "./CounterUsingReducer";
