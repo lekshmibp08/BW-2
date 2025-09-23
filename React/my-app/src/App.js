@@ -6,7 +6,7 @@ import ThemeProvider from "./ThemeContext/ThemeProvider";
 import CheckBoxProvider from "./CheckBoxProvider";
 import CheckBoxComponent from "./CheckBoxComponent";
 import CounterUsingReducer from "./counterUsingReducer/CounterUsingReducer";
-import Parent from "./Parent";
+import Parent from './redux/Parent'
 import { Provider } from "react-redux";
 import store from "./counterUsingReducer/store";
 
